@@ -56,5 +56,30 @@ function playGame(humanChoice) {
     }
 
     scoreDisplay.textContent = `Human: ${humanScore} | Computer: ${computerScore}`;
+
+    if (humanScore === 5 || computerScore === 5) {
+        rockButton.disabled = true;
+        paperButton.disabled = true;
+        scissorsButton.disabled = true;
+    
+        if (humanScore > computerScore) {
+            roundResult.textContent += "You won the game!";
+        } else {
+            roundResult.textContent += "The computer won the game!"
+        };
+    }
 }
+
   
+const resetBtn = document.getElementById('reset-button');
+
+resetBtn.addEventListener("click", () => {
+    humanScore = 0;
+    computerScore = 0;
+    scoreDisplay.textContent = `Human: 0 | Computer: 0`;
+    roundResult.textContent = "";
+
+    rockButton.disabled = false;
+    paperButton.disabled = false;
+    scissorsButton.disabled = false;
+});
