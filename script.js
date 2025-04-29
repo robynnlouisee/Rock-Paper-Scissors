@@ -64,6 +64,7 @@ function playGame(humanChoice) {
     
         if (humanScore > computerScore) {
             roundResult.textContent += "You won the game!";
+            confetti();
         } else {
             roundResult.textContent += "The computer won the game!"
         };
