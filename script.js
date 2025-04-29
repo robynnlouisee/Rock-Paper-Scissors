@@ -61,18 +61,25 @@ function playGame(humanChoice) {
         rockButton.disabled = true;
         paperButton.disabled = true;
         scissorsButton.disabled = true;
+
+        const gameMessage = document.getElementById('game-message');
     
         if (humanScore > computerScore) {
             roundResult.textContent = "You won the game!";
             confetti();
+            gameMessage.style.color = "green";
+            gameMessage.textContent = "🎉 You beat the computer!";
+            gameMessage.style.display = "block";
         } else {
-            roundResult.textContent = "☠️Game Over - The computer wins!"
+            roundResult.textContent = "The computer won the game!"
+            gameMessage.style.color = "red";
+            gameMessage.textContent = "☠️ Game Over - The Computer Wins!";
+            gameMessage.style.display = "block";
         };
     }
 }
 
-  
-const resetBtn = document.getElementById('reset-button');
+  const resetBtn = document.getElementById('reset-button');
 
 resetBtn.addEventListener("click", () => {
     humanScore = 0;
@@ -83,4 +90,6 @@ resetBtn.addEventListener("click", () => {
     rockButton.disabled = false;
     paperButton.disabled = false;
     scissorsButton.disabled = false;
+    document.getElementById("game-message").textContent = "";
+
 });
