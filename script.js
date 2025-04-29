@@ -63,10 +63,10 @@ function playGame(humanChoice) {
         scissorsButton.disabled = true;
     
         if (humanScore > computerScore) {
-            roundResult.textContent += "You won the game!";
+            roundResult.textContent = "You won the game!";
             confetti();
         } else {
-            roundResult.textContent += "The computer won the game!"
+            roundResult.textContent = "☠️Game Over - The computer wins!"
         };
     }
 }
